@@ -33,7 +33,11 @@ app = FastAPI(title="AI Resume Assistant")
 # -------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React/Vite frontend
+    allow_origins=[
+    "http://localhost:5173",
+    "https://resume-pro-ai.vercel.app"
+]
+,  # React/Vite frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,3 +81,6 @@ User question:
         return {
             "reply": f"Gemini error: {str(e)}"
         }
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=10000)
