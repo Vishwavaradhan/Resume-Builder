@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   🖨️ PRINT SAFETY NET (GLOBAL)
+================================ */
+
+@media print {
+  #resume-preview {
+    width: 794px !important;
+    margin: 0 auto !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+}
